@@ -1,14 +1,14 @@
-import type {Request, Response} from 'express'
-import {validationResult} from 'express-validator';
+import type { Request, Response } from 'express'
+import { validationResult } from 'express-validator';
 import slug from 'slug';
 import User from "../models/User";
 import { hashPassword } from '../utils/auth';
 
 
-export const createAccount = async(req: Request, res: Response) => {
+export const createAccount = async (req: Request, res: Response) => {
 
 
-//Manejar errores de validación
+    //Manejar errores de validación
     let errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });

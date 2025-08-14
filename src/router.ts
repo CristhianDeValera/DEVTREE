@@ -1,12 +1,12 @@
 
-import {Router} from 'express';
+import { Router } from 'express';
 import { createAccount } from './handlers';
-import {body} from 'express-validator';
+import { body } from 'express-validator';
 
 const router = Router();
 
 // autenticación y registro
-router.post('/auth/register', 
+router.post('/auth/register',
     body('handle')
         .notEmpty()
         .withMessage('El handle no puede estar vacío'),
@@ -22,14 +22,10 @@ router.post('/auth/register',
     createAccount);
 
 router.post('/auth/login',
-
-    
 )
 
 
-export default router; 
-
-
+export default router;
 
 /*
 mongoose:
